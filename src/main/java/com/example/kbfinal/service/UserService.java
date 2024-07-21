@@ -22,11 +22,16 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     @Transactional
-    public UserDto registerUser(User user) {
-        // 비밀번호를 암호화하여 저장
+    public UserDto registerUser(User request) {
 
-        // password를 인코딩
-        // user entity에 인코딩 된 password를 넣기
+        User user = new User();
+        user.setUsername(request.getUsername());
+        // 암호화
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setEmail(request.getEmail());
+        user.setAddress(request.getAddress());
+        user.setPhonenumber(request.getPhonenumber());
+
         userRepository.save(user);
         return UserDto.fromEntity(user);
     }
@@ -49,7 +54,7 @@ public class UserService {
         user.setUsername(request.getUsername());
         user.setAddress(request.getAddress());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setPhonenumber(request.getPhonenumber());
 
         userRepository.save(user);
