@@ -1,3 +1,0 @@
-INSERT INTO user_table (username, password, email, address, phonenumber) VALUES ('jiwon', 'qwer1234', 'ljw7313@naver.com','goyang', '010-9001-0392');
-INSERT INTO user_table (username, password, email, address, phonenumber) VALUES ('mingu', '1234qwer', 'alsrb@naver.com','seoul', '010-1234-5678');
-INSERT INTO user_table (username, password, email, address, phonenumber) VALUES ('manggom', 'qazwsx321', 'akdrha@naver.com','seoul', '010-9876-5432');
