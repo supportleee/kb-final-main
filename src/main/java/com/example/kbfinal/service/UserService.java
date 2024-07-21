@@ -1,5 +1,6 @@
 package com.example.kbfinal.service;
 
+import com.example.kbfinal.dto.UserCountDto;
 import com.example.kbfinal.dto.UserDto;
 import com.example.kbfinal.entity.User;
 import com.example.kbfinal.repository.UserRepository;
@@ -64,5 +65,11 @@ public class UserService {
         return userRepository.findAll()
                 .stream().map(UserDto::fromEntity)
                 .collect(Collectors.toList());
+    }
+
+    public UserCountDto getUsersCount() {
+        return UserCountDto.builder()
+                .count(userRepository.count())
+                .build();
     }
 }

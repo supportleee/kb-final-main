@@ -27,7 +27,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 request -> request.requestMatchers(PathRequest.toH2Console()).permitAll()
-                        .requestMatchers("/","/api/**","/swagger-ui/**").permitAll()
+                        .requestMatchers("/","/api/**","/swagger-ui/**","/v3/api-docs/**","/swagger-resources/**").permitAll()
                         .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers.frameOptions(FrameOptionsConfig::sameOrigin));;

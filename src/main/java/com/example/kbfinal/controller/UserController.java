@@ -1,5 +1,6 @@
 package com.example.kbfinal.controller;
 
+import com.example.kbfinal.dto.UserCountDto;
 import com.example.kbfinal.dto.UserDto;
 import com.example.kbfinal.entity.User;
 import com.example.kbfinal.service.UserService;
@@ -58,5 +59,11 @@ public class UserController {
     }
 
     // 전체 user 의 숫자를 조회하는 api 생성
+    @GetMapping("/count")
+    public UserCountDto getUsersCount() {
+        // GET /api/users/count HTTP/1.1
+        log.info("GET /api/users/count HTTP/1.1");
 
+        return userService.getUsersCount();
+    }
 }
